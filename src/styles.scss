@@ -10,3 +10,6 @@ body {
   overflow-y: auto;
   font-family: openSans;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
