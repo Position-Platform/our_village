@@ -1,0 +1,13 @@
+<p>categories works!</p>
+
+<h4>List of Categories</h4>
+
+<ng-content *ngIf="!(isLoading$ | async); else spinner"></ng-content>
+
+<ng-template #spinner>
+  <app-loading> </app-loading>
+</ng-template>
+
+<div *ngFor="let categorie of categories$ | async; let i = index">
+  <span>{{ i + 1 }}.</span> {{ categorie.nom }}
+</div>

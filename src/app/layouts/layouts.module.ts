@@ -5,6 +5,8 @@ import { SidebarLayoutComponent } from './sidebar-layout/sidebar-layout.componen
 import { SearchbarLayoutComponent } from './searchbar-layout/searchbar-layout.component';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { RouterModule } from '@angular/router';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { CategoriesModule } from '../categories/categories.module';
 
 
 
@@ -13,6 +15,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    MatSidenavModule,
+    CategoriesModule
   ]
 })
 export class LayoutsModule { }
