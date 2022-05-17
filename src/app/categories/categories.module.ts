@@ -18,6 +18,6 @@ import { MaterialModule } from '../core/modules/material';
     MaterialModule
   ],
   exports: [CategoriesComponent],
-  declarations: [CategoriesComponent],
+  declarations: [CategoriesComponent]
 })
 export class CategoriesModule {}

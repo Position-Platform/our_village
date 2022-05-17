@@ -4,31 +4,25 @@ import { getLocation } from './map.actions';
 
 export const mapFeatureKey = 'map';
 
-
-
 export interface MapState {
- isLocation : boolean;
+  isLocation: boolean;
 }
 
 export const initialState: MapState = {
-  isLocation: false,
+  isLocation: false
 };
 
 export const mapReducer = createReducer(
   initialState,
-  on(getLocation, (state) => {
+  on(getLocation, state => {
     var mapHelper = new MapHelper();
     return {
       ...state,
-      isLocation: mapHelper.geolocateUser(),
+      isLocation: mapHelper.geolocateUser()
     };
-  }),
+  })
 );
 
-export function reducer(
-  state: MapState | undefined,
-  action: Action
-): any {
+export function reducer(state: MapState | undefined, action: Action): any {
   return mapReducer(state, action);
 }
-

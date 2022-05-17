@@ -1,14 +1,26 @@
-import { CircleStyle, Cluster, Feature, Fill, Geolocation, Icon, Map, Point, Stroke, Style, Text, TileLayer, VectorLayer, VectorSource, XYZ } from 'src/app/core/modules/ol';
-import { Injectable } from "@angular/core";
+import {
+  CircleStyle,
+  Cluster,
+  Feature,
+  Fill,
+  Geolocation,
+  Icon,
+  Map,
+  Point,
+  Stroke,
+  Style,
+  Text,
+  TileLayer,
+  VectorLayer,
+  VectorSource,
+  XYZ
+} from 'src/app/core/modules/ol';
+import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { map as geoportailMap } from './../components/map/map.component';
 import { transform } from 'ol/proj';
 
-const typeLayer = [
-  'vector',
-  'cluster',
-  'xyz'
-];
+const typeLayer = ['vector', 'cluster', 'xyz'];
 
 @Injectable()
 export class MapHelper {
@@ -26,10 +38,10 @@ export class MapHelper {
       trackingOptions: {
         enableHighAccuracy: true,
         maximumAge: 0,
-        timeout: 5000,
+        timeout: 5000
       },
       tracking: true,
-      projection: this.map?.getView().getProjection(),
+      projection: this.map?.getView().getProjection()
     });
   }
 
@@ -38,13 +50,13 @@ export class MapHelper {
       // @ts-ignore
 
       nom: 'user_position',
-      source: new VectorSource({}),
+      source: new VectorSource({})
     });
     geolocalisationLayer.setZIndex(99999999);
     this.map?.addLayer(geolocalisationLayer);
   }
 
-  geolocateUser() : boolean {
+  geolocateUser(): boolean {
     if (this.getLayerByName('user_position').length == 0) {
       this.initialiserLayerGeoLocalisation();
     }
@@ -57,9 +69,7 @@ export class MapHelper {
       var coordinates = this.geolocation?.getPosition();
       localStorage.setItem('longitude', coordinates![0].toString());
       localStorage.setItem('latitude', coordinates![1].toString());
-      positionFeature.setGeometry(
-        coordinates ? new Point(coordinates) : undefined
-      );
+      positionFeature.setGeometry(coordinates ? new Point(coordinates) : undefined);
       if (coordinates) {
         this.fit_view(new Point(coordinates), environment.zoomLocation);
       }
@@ -78,32 +88,20 @@ export class MapHelper {
   // Get Map BBox
 
   getBboxInMap() {
-    var bboxMap = this.map
-      ?.getView()
-      .calculateExtent(this.map.getSize())
-      .toString()
-      .split(',');
+    var bboxMap = this.map?.getView().calculateExtent(this.map.getSize()).toString().split(',');
 
-    var Amin = transform(
-      [parseFloat(bboxMap![0]), parseFloat(bboxMap![1])],
-      'EPSG:3857',
-      'EPSG:4326'
-    );
-    var Amax = transform(
-      [parseFloat(bboxMap![2]), parseFloat(bboxMap![3])],
-      'EPSG:3857',
-      'EPSG:4326'
-    );
+    var Amin = transform([parseFloat(bboxMap![0]), parseFloat(bboxMap![1])], 'EPSG:3857', 'EPSG:4326');
+    var Amax = transform([parseFloat(bboxMap![2]), parseFloat(bboxMap![3])], 'EPSG:3857', 'EPSG:4326');
 
     var bbox = {
       min: {
         lon: Amin[0],
-        lat: Amin[1],
+        lat: Amin[1]
       },
       max: {
         lon: Amax[0],
-        lat: Amax[1],
-      },
+        lat: Amax[1]
+      }
     };
 
     return bbox;
@@ -115,19 +113,12 @@ export class MapHelper {
       maxZoom: zoom,
       size: this.map?.getSize(),
       padding: [0, 0, 0, 0],
-      duration: duration ?? 1000,
+      duration: duration ?? 1000
     });
   }
 
   //Construct Layer
-  constructLayer(
-    type: string,
-    source: VectorSource,
-    name: string,
-    style?: Style,
-    color?: string,
-    logo?: string
-  ) {
+  constructLayer(type: string, source: VectorSource, name: string, style?: Style, color?: string, logo?: string) {
     var layer;
     if (type === 'vector') {
       layer = new VectorLayer({
@@ -135,7 +126,7 @@ export class MapHelper {
         style: style,
         //@ts-ignore
         nom: nom,
-        type_layer: 'vector',
+        type_layer: 'vector'
       });
     } else if (type === 'xyz') {
       layer = new TileLayer({
@@ -143,17 +134,16 @@ export class MapHelper {
           crossOrigin: 'anonymous',
           url: this.environment.layers.osm,
           attributionsCollapsible: false,
-          attributions:
-            ' © Powered by <a target="_blank" href="https://position.cm"> Position </a> ',
+          attributions: ' © Powered by <a target="_blank" href="https://position.cm"> Position </a> '
         }),
         //@ts-ignore
         nom: nom,
-        type_layer: 'xyz',
+        type_layer: 'xyz'
       });
     } else if (type === 'cluster') {
       var clusterSource = new Cluster({
         distance: 80,
-        source: source,
+        source: source
       });
 
       layer = new VectorLayer({
@@ -168,19 +158,19 @@ export class MapHelper {
                 image: new CircleStyle({
                   radius: 18,
                   stroke: new Stroke({
-                    color: '#fff',
+                    color: '#fff'
                   }),
                   fill: new Fill({
-                    color: color,
-                  }),
+                    color: color
+                  })
                 }),
                 text: new Text({
                   font: '15px Calibri,sans-serif',
                   text: size.toString(),
                   fill: new Fill({
-                    color: '#fff',
-                  }),
-                }),
+                    color: '#fff'
+                  })
+                })
               });
               //@ts-ignore
               styleCache[size] = style;
@@ -190,8 +180,8 @@ export class MapHelper {
             var styleDefaultII = new Style({
               image: new Icon({
                 scale: 1.2,
-                src: logo,
-              }),
+                src: logo
+              })
             });
 
             return styleDefaultII;
@@ -199,7 +189,7 @@ export class MapHelper {
         },
         //@ts-ignore
         nom: name,
-        type_layer: 'cluster',
+        type_layer: 'cluster'
       });
     }
 
@@ -217,9 +207,7 @@ export class MapHelper {
     }
 
     if (typeLayer.indexOf(layer.get('type_layer')) == -1) {
-      throw new Error(
-        "Layer must have a 'type_layer' properties among " + typeLayer.join(',')
-      );
+      throw new Error("Layer must have a 'type_layer' properties among " + typeLayer.join(','));
     }
 
     this.map?.addLayer(layer);
@@ -259,7 +247,7 @@ export class MapHelper {
   addMapZoomAnimation = (zoom: number) => {
     this.map?.getView().animate({
       zoom: zoom,
-      duration: 1000,
+      duration: 1000
     });
   };
 
