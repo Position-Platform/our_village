@@ -2,7 +2,8 @@
 
 @import './assets/fonts/open_sans/style.scss';
 @import "~@angular/cdk/overlay-prebuilt.css";
-@include mat-core();
+@import './ol.scss';
+
 
 html,
 body {

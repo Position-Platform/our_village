@@ -14,10 +14,10 @@ export const environment = {
 
   avaible_language: ['fr', 'en'],
   default_language: 'fr',
-  url_services: 'https://servicesdev.position.cm',
+  url_services: 'http://localhost:8000',
   url_images: 'https://service.geo.sm/var/www',
   primaryColor: '#05BF95',
-  apiKey: 'KAJwm1CGJsKb33bxDaTHARdv1nC9BGoIgUzaAjp4IuGwOMK1KbQZyxO4wtUo1pes',
+  apiKey: 'soo7HP58G7nZ1sn4MWnqn8FwEGjjde97bldXLJxos5XM5wp5pEjHDbXqlzwp0jtc',
   firebaseApiKey: 'AIzaSyDFnJZLnSb3iAOARbf_XiBYOCIkDePXx7Y',
 };
 
