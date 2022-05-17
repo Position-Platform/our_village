@@ -2,6 +2,7 @@
 
 @import './assets/fonts/open_sans/style.scss';
 @import "~@angular/cdk/overlay-prebuilt.css";
+@include mat-core();
 
 html,
 body {
@@ -9,7 +10,6 @@ body {
   height: 100%;
   color: black;
   overflow-y: auto;
-  font-family: openSans;
 }
 
 /* Importing Bootstrap SCSS file. */

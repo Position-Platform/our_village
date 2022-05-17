@@ -23,4 +23,17 @@ export class CategoriesEffects {
       )
     )
   );
+
+  updateViewCategorie$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(categoriesAction.UPDATEVIEWCATEGORIE),
+      exhaustMap(({ categorieId }) =>
+        this.categoriesService.updateViewCategorie(categorieId).pipe(
+          map(categorie => categoriesAction.updateSuccess({ categorie })),
+          catchError(error => of(categoriesAction.updateFail({ message: error }))
+          )
+        )
+      )
+    )
+  );
 }

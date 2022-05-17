@@ -21,3 +21,10 @@ export const selectIsLoading = createSelector(
 
   (state: fromCategories.CategoriesState) => state.isLoading,
 );
+
+export const selectIsUpdate = createSelector(
+
+  selectCategoriesState,
+
+  (state: fromCategories.CategoriesState) => state.isUpdate,
+);

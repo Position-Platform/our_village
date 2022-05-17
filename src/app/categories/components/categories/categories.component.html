@@ -9,5 +9,5 @@
 </ng-template>
 
 <div *ngFor="let categorie of categories$ | async; let i = index">
-  <span>{{ i + 1 }}.</span> {{ categorie.nom }}
+  <span (click)="categorieClick(categorie.id.toString())">{{ i + 1 }}.</span> {{ categorie.nom }}
 </div>
