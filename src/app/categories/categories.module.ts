@@ -6,6 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CategoriesEffects } from './states/categories.effects';
 import { categorieFeatureKey, reducer } from './states/categories.reducer';
 import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../core/modules/material';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
     StoreModule.forFeature(categorieFeatureKey, reducer),
     StoreModule.forRoot(reducer),
     EffectsModule.forRoot([CategoriesEffects]),
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   exports: [CategoriesComponent],
   declarations: [CategoriesComponent],
