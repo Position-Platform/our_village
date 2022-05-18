@@ -20,5 +20,3 @@ export const environment = {
   apiKey: 'KAJwm1CGJsKb33bxDaTHARdv1nC9BGoIgUzaAjp4IuGwOMK1KbQZyxO4wtUo1pes',
   firebaseApiKey: 'AIzaSyDFnJZLnSb3iAOARbf_XiBYOCIkDePXx7Y',
 };
-
-

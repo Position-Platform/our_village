@@ -1,4 +1,3 @@
-
 import { Action, createReducer, on } from "@ngrx/store";
 import { Datum } from "../interfaces/categories";
 import { categoriesFailure, categoriesSuccess, getallcategories, updateSuccess, updateviewcategorie } from "./categories.actions";
