@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import './assets/fonts/open_sans/style.scss';
-@import './theme.scss';
-@import "~@angular/cdk/overlay-prebuilt.css";
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import './ol.scss';
 
 html,
 body {
@@ -10,7 +10,6 @@ body {
   height: 100%;
   color: black;
   overflow-y: auto;
-  font-family: openSans;
 }
 
 /* Importing Bootstrap SCSS file. */

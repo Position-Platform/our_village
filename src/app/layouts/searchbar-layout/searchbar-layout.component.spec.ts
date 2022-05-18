@@ -8,9 +8,8 @@ describe('SearchbarLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchbarLayoutComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchbarLayoutComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

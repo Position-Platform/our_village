@@ -1,13 +1,30 @@
-<p>categories works!</p>
+<div class="container categories">
+  <p class="title">{{'categories.title' | translate }}</p>
+  <ng-content *ngIf="(isLoading$ | async)=== false; else spinner"></ng-content>
 
-<h4>List of Categories</h4>
+  <ng-template #spinner>
+    <app-loading> </app-loading>
+  </ng-template>
+  <div
+    fxLayout=" row "
+    fxLayoutAlign="flex-start"
+    [ngClass]="{'liste-categories-show-mobile':show_hide_categorie,'liste-categories':!show_hide_categorie}"
+  >
+    <button (click)="categorieClick(categorie.id.toString())" *ngFor="let categorie of categories$ | async;" mat-button>
+      <mat-icon svgIcon="{{categorie.nom}}" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+      &nbsp;
+      <span class="shortname-button">{{ categorie.shortname }}</span>
+    </button>
+  </div>
 
-<ng-content *ngIf="!(isLoading$ | async); else spinner"></ng-content>
-
-<ng-template #spinner>
-  <app-loading> </app-loading>
-</ng-template>
-
-<div *ngFor="let categorie of categories$ | async; let i = index">
-  <span>{{ i + 1 }}.</span> {{ categorie.nom }}
+  <div *ngIf="(isLoading$ | async)=== false" class="text-center" style="margin-top: 10px">
+    <button (click)="ShowHideCategorie()" *ngIf="!show_hide_categorie" style="display: none" class="showCategorie">
+      <span style="font-family: OpenSans; font-size: 12px">{{'categories.show_all_categories' | translate }}</span>
+      <img src="assets/icons/svg/icon-see-more-grey.svg" alt="flèche" />
+    </button>
+    <button (click)="ShowHideCategorie()" *ngIf="show_hide_categorie" style="display: none" class="hideCategorie">
+      <span style="font-family: OpenSans; font-size: 12px">{{'categories.hide_all_categories' | translate }}</span>
+      <img src="assets/icons/svg/icon-see-less.svg" alt="flèche" />
+    </button>
+  </div>
 </div>
