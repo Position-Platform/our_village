@@ -12,7 +12,7 @@ export const map = new Map({
     new TileLayer({
       source: new XYZ({
         crossOrigin: 'anonymous',
-        url: environment.layers.osm,
+        url: environment.layers.street,
         attributionsCollapsible: false,
         attributions: ' © Powered by <a target="_blank" href="https://position.cm"> Position </a> '
       })

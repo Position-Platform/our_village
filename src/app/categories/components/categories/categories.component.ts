@@ -1,11 +1,14 @@
 import { updateviewcategorie } from './../../states/categories.actions';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Datum } from '../../interfaces/categories';
 import { GETCATEGORIES } from '../../states/categories.actions';
 import { CategoriesState } from '../../states/categories.reducer';
 import { selectCategories, selectIsLoading, selectIsUpdate } from '../../states/categories.selector';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-categories',
@@ -17,10 +20,34 @@ export class CategoriesComponent implements OnInit {
   isLoading$: Observable<boolean>;
   isUpdate$: Observable<boolean | undefined>;
 
-  constructor(private store: Store<CategoriesState>) {
-    this.categories$ = this.store.select(selectCategories);
-    this.isLoading$ = this.store.select(selectIsLoading);
-    this.isUpdate$ = this.store.select(selectIsUpdate);
+  iconRegistry: MatIconRegistry | undefined;
+  sanitzer: DomSanitizer | undefined;
+  environment;
+
+  show_hide_categorie=false
+
+  constructor(private store: Store<CategoriesState>,iconRegistry: MatIconRegistry,sanitizer: DomSanitizer) {
+    this.categories$ = this.store.pipe(select(selectCategories));
+    this.isLoading$ = this.store.pipe(select(selectIsLoading));
+    this.isUpdate$ = this.store.pipe(select(selectIsUpdate));
+
+
+    this.iconRegistry = iconRegistry;
+    this.sanitzer = sanitizer;
+    this.environment = environment;
+  }
+
+  ShowHideCategorie() {
+    if (!this.show_hide_categorie) {
+
+
+      this.show_hide_categorie =true;
+    } else
+    {
+
+
+      this.show_hide_categorie = false;
+    }
   }
 
   ngOnInit() {
