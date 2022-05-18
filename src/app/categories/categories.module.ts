@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './components/categories/categories.component';
@@ -15,7 +16,8 @@ import { MaterialModule } from '../core/modules/material';
     StoreModule.forRoot(reducer),
     EffectsModule.forRoot([CategoriesEffects]),
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    TranslateModule
   ],
   exports: [CategoriesComponent],
   declarations: [CategoriesComponent]

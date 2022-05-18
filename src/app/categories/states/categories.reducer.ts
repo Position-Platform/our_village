@@ -1,6 +1,6 @@
-import { Action, createReducer, on } from "@ngrx/store";
-import { Datum } from "../interfaces/categories";
-import { categoriesFailure, categoriesSuccess, getallcategories, updateSuccess, updateviewcategorie } from "./categories.actions";
+import { Action, createReducer, on } from '@ngrx/store';
+import { Datum } from '../interfaces/categories';
+import { categoriesFailure, categoriesSuccess, getallcategories, updateSuccess, updateviewcategorie } from './categories.actions';
 
 export const categorieFeatureKey = 'categorie';
 
@@ -51,7 +51,8 @@ export const categoriesReducer = createReducer(
     isLoading: false,
     isLoadingSuccess: false,
     isLoadingFailure: false,
-    result: ''
+    result: '',
+    isUpdate: false
   })),
   on(updateSuccess, (state, { categorie }) => ({
     categories: state.categories,
@@ -59,7 +60,8 @@ export const categoriesReducer = createReducer(
     isLoadingSuccess: false,
     isLoadingFailure: false,
     result: '',
-    categorie: categorie
+    categorie: categorie,
+    isUpdate: true
   }))
 );
 

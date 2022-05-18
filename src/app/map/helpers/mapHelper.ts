@@ -1,26 +1,8 @@
-import {
-  CircleStyle,
-  Cluster,
-  Feature,
-  Fill,
-  Geolocation,
-  Icon,
-  Map,
-  Point,
-  Stroke,
-  Style,
-  Text,
-  TileLayer,
-  VectorLayer,
-  VectorSource,
-  XYZ
-} from 'src/app/core/modules/ol';
+import { Feature, Geolocation, Map, Point, Style, VectorLayer, VectorSource } from 'src/app/core/modules/ol';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { map as geoportailMap } from './../components/map/map.component';
 import { transform } from 'ol/proj';
-
-const typeLayer = ['vector', 'cluster', 'xyz'];
 
 @Injectable()
 export class MapHelper {
@@ -54,6 +36,7 @@ export class MapHelper {
     });
     geolocalisationLayer.setZIndex(99999999);
     this.map?.addLayer(geolocalisationLayer);
+    this.map?.renderSync();
   }
 
   geolocateUser(): boolean {
@@ -115,107 +98,6 @@ export class MapHelper {
       padding: [0, 0, 0, 0],
       duration: duration ?? 1000
     });
-  }
-
-  //Construct Layer
-  constructLayer(type: string, source: VectorSource, name: string, style?: Style, color?: string, logo?: string) {
-    var layer;
-    if (type === 'vector') {
-      layer = new VectorLayer({
-        source: source,
-        style: style,
-        //@ts-ignore
-        nom: nom,
-        type_layer: 'vector'
-      });
-    } else if (type === 'xyz') {
-      layer = new TileLayer({
-        source: new XYZ({
-          crossOrigin: 'anonymous',
-          url: this.environment.layers.osm,
-          attributionsCollapsible: false,
-          attributions: ' © Powered by <a target="_blank" href="https://position.cm"> Position </a> '
-        }),
-        //@ts-ignore
-        nom: nom,
-        type_layer: 'xyz'
-      });
-    } else if (type === 'cluster') {
-      var clusterSource = new Cluster({
-        distance: 80,
-        source: source
-      });
-
-      layer = new VectorLayer({
-        source: clusterSource,
-        style: function (feature) {
-          const size = feature.get('features').length;
-          if (size != 1) {
-            //@ts-ignore
-            let style = styleCache[size];
-            if (!style) {
-              style = new Style({
-                image: new CircleStyle({
-                  radius: 18,
-                  stroke: new Stroke({
-                    color: '#fff'
-                  }),
-                  fill: new Fill({
-                    color: color
-                  })
-                }),
-                text: new Text({
-                  font: '15px Calibri,sans-serif',
-                  text: size.toString(),
-                  fill: new Fill({
-                    color: '#fff'
-                  })
-                })
-              });
-              //@ts-ignore
-              styleCache[size] = style;
-            }
-            return style;
-          } else {
-            var styleDefaultII = new Style({
-              image: new Icon({
-                scale: 1.2,
-                src: logo
-              })
-            });
-
-            return styleDefaultII;
-          }
-        },
-        //@ts-ignore
-        nom: name,
-        type_layer: 'cluster'
-      });
-    }
-
-    return layer;
-  }
-
-  // Add Layer to Map
-  addLayerToMap(layer: VectorLayer | TileLayer) {
-    if (!layer.get('nom')) {
-      throw new Error("Layer must have a 'nom' properties");
-    }
-
-    if (!layer.get('type_layer')) {
-      throw new Error("Layer must have a 'type_layer' properties");
-    }
-
-    if (typeLayer.indexOf(layer.get('type_layer')) == -1) {
-      throw new Error("Layer must have a 'type_layer' properties among " + typeLayer.join(','));
-    }
-
-    this.map?.addLayer(layer);
-    this.map?.renderSync();
-  }
-
-  removeLayerToMap(layer: VectorLayer | TileLayer) {
-    this.map?.removeLayer(layer);
   }
 
   getAllLAyerInMap(): Array<any> {

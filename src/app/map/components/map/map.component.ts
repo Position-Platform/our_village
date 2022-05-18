@@ -37,8 +37,7 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //  this.initialiazeMap();
-
+    this.initialiazeMap();
     this.store.dispatch({ type: GETLOCATION });
 
     this.isLocation$.subscribe(isLocation => {

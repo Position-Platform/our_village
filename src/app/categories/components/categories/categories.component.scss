@@ -7,32 +7,40 @@
   border: 2px solid white;
   border-radius: 10px;
   //padding: 0px 10px 10px 10px;
-  margin-top: 10px;
   padding: 10px 10px !important;
-font-size: 12px;
+  font-size: 12px;
   background-color: white;
+}
+
+.title {
+  color: black;
+  font-family: OpenSans bold;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.shortname-button {
+  color: black;
+  font-family: 'OpenSans semibold';
+  font-size: 13px;
 }
 
 .liste-categories {
   padding: 0px !important;
 }
-.liste-categories-show-mobile{
-flex-wrap: wrap;
-overflow: unset;
-display: block;
-text-align: left;
 
-height: unset;
+.liste-categories-show-mobile {
+  margin-top: 10px;
 }
-
 
 .showCategorie,
 .hideCategorie {
   border: none;
   background-color: transparent;
-  font-family: "OpenSans semi-bold";
+  font-family: 'OpenSans semi-bold';
   font-size: 10px;
-  color: #9E9E9E;
+  color: #9e9e9e;
   text-align: center;
 }
 
@@ -42,23 +50,21 @@ height: unset;
   // margin-left: 20px;
 }
 
-
 .mat-button {
   background-color: white;
   border-radius: 50px;
   border: 1px solid #e1dddd;
- // padding: 0 5px 0px 5px;
+  // padding: 0 5px 0px 5px;
   margin-bottom: 10px;
   font-size: 12px;
   font-family: OpenSans light;
   border-width: thin;
   margin-left: 4px;
   height: 25px;
-  color: #6D7278;
+  color: #6d7278;
   letter-spacing: 0;
   line-height: 14px;
 }
-
 
 .mat-icon {
   width: 15px;
@@ -79,29 +85,30 @@ height: unset;
   }
 }
 
-@media (max-width:728px) {
-
+@media (max-width: 728px) {
   .showCategorie,
   .hideCategorie {
     display: inline-block !important;
   }
 
+  .shortname-button {
+    color: black;
+    font-family: 'OpenSans Bold';
+    font-size: 12px;
+  }
+
   .categories {
     max-width: 430px;
-    min-width: 350px;
     width: 95%;
-    padding: 10px 10px !important;
-    margin: 10 auto;
+    visibility: visible;
+
     .title {
       display: none;
     }
 
     .liste-categories {
       overflow: hidden;
-
-      flex-wrap: wrap;
       height: 30px;
-
 
       margin-top: 10px;
 
@@ -109,18 +116,14 @@ height: unset;
         min-width: unset !important;
       }
     }
-
-
   }
-
-
 }
 
-@media (min-width:728px) {
+@media (min-width: 728px) {
   .liste-categories {
     overflow: unset !important;
 
     flex-wrap: wrap;
-    height: unset !important
+    height: unset !important;
   }
 }
