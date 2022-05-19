@@ -6,9 +6,9 @@ export const environment = {
     satellite:
       'https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2F1dHk5NiIsImEiOiJjanN4aDd2cG8wMmw3NDRwaDc2cnc2OXJwIn0.YRVVo-3FkQtfkMPH4lt2hw',
     dark: 'https://tile.jawg.io/dark/{z}/{x}/{y}.png?api-key=KEzgT1q0xEDQ06n23POIRMJqrtuHZOoo4FPNm1GfrNEzEOcnaQxuznduTbaAvGg3',
-    osm: 'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    osm: 'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png'
   },
-  zoomLocation: 14,
+  zoomLocation: 16,
 
   avaible_language: ['fr', 'en'],
   default_language: 'fr',
@@ -16,5 +16,5 @@ export const environment = {
   url_images: 'https://service.geo.sm/var/www',
   primaryColor: '#05BF95',
   apiKey: 'KAJwm1CGJsKb33bxDaTHARdv1nC9BGoIgUzaAjp4IuGwOMK1KbQZyxO4wtUo1pes',
-  firebaseApiKey: 'AIzaSyDFnJZLnSb3iAOARbf_XiBYOCIkDePXx7Y',
+  firebaseApiKey: 'AIzaSyDFnJZLnSb3iAOARbf_XiBYOCIkDePXx7Y'
 };

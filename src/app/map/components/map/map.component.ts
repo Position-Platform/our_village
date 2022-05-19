@@ -5,7 +5,7 @@ import { TileLayer, XYZ, Map, View } from 'src/app/core/modules/ol';
 import { environment } from 'src/environments/environment';
 import { MapState } from '../../states/map.reducer';
 import { selectIsLocation } from '../../states/map.selector';
-import { GETLOCATION } from '../../states/map.actions';
+import { GETLOCATION, ZOOM_MINUS, ZOOM_PLUS, ZOOM_TO_LOCATION } from '../../states/map.actions';
 
 export const map = new Map({
   layers: [
@@ -31,7 +31,7 @@ export const map = new Map({
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  isLocation$: Observable<boolean>;
+  isLocation$: Observable<boolean | undefined>;
   constructor(private store: Store<MapState>) {
     this.isLocation$ = this.store.select(selectIsLocation);
   }
@@ -49,5 +49,17 @@ export class MapComponent implements OnInit {
 
   initialiazeMap() {
     map.setTarget('map');
+  }
+
+  zoomPlus() {
+    this.store.dispatch({ type: ZOOM_PLUS });
+  }
+
+  zoomMinus() {
+    this.store.dispatch({ type: ZOOM_MINUS });
+  }
+
+  getLocation() {
+    this.store.dispatch({ type: ZOOM_TO_LOCATION });
   }
 }
