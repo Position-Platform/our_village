@@ -8,7 +8,7 @@ export const environment = {
     dark: 'https://tile.jawg.io/dark/{z}/{x}/{y}.png?api-key=KEzgT1q0xEDQ06n23POIRMJqrtuHZOoo4FPNm1GfrNEzEOcnaQxuznduTbaAvGg3',
     osm: 'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png'
   },
-  zoomLocation: 14,
+  zoomLocation: 16,
 
   avaible_language: ['fr', 'en'],
   default_language: 'fr',
