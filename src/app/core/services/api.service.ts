@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ApiService {
   headers: HttpHeaders = new HttpHeaders({});
@@ -22,9 +22,7 @@ export class ApiService {
    * Get header
    */
   get_header() {
-    this.headers = this.headers
-      .set('Authorization', 'Bearer  ' + localStorage.getItem('token'))
-      .set('X-Authorization', environment.apiKey);
+    this.headers = this.headers.set('Authorization', 'Bearer  ' + localStorage.getItem('token')).set('X-Authorization', environment.apiKey);
     return this.headers;
   }
 
@@ -35,7 +33,7 @@ export class ApiService {
   getRequestFromOtherHost(path: string): Promise<any> {
     let promise = new Promise((resolve, reject) => {
       this.http
-        .get(path, { headers: this.get_header() })
+        .get(path)
         .toPromise()
         .then(
           res => {
