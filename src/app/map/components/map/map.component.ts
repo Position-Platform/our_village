@@ -1,3 +1,4 @@
+import { SearchInterface } from './../../../layouts/searchbar-layout/interfaces/search';
 import { Observable } from 'rxjs';
 import { OnInit, Component } from '@angular/core';
 import { Store } from '@ngrx/store';

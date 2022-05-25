@@ -1,13 +1,10 @@
- <div class="sidebar">
- <div class="container img-sidebar">
+<div class="sidebar">
+  <div class="container img-sidebar">
     <a>
       <img class="img-fluid" src="assets/icons/svg/logo-nom.svg" alt="logo-position" />
     </a>
-
   </div>
 
-  <app-searchbar-layout></app-searchbar-layout>
+  <app-searchbar-layout (selected)="onPlaceSelected($event!)"></app-searchbar-layout>
   <app-categories></app-categories>
- </div>
-
-
+</div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { map as geoportailMap } from './../components/map/map.component';
 import { transform } from 'ol/proj';
+import { SearchInterface } from 'src/app/layouts/searchbar-layout/interfaces/search';
 
 @Injectable()
 export class MapHelper {
@@ -137,5 +138,9 @@ export class MapHelper {
     let extent = layer.getSource().getExtent();
     //@ts-ignore
     this.fit_view(extent, this.map?.getView().getZoom()! + 1);
+  }
+
+  zoomSelectedResult(result: SearchInterface) {
+    console.log(result);
   }
 }

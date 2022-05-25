@@ -35,10 +35,6 @@ export class SearchbarLayoutComponent {
     this.showResults = name.length >= 3;
     this.searchText$.next(name);
     this.store.dispatch(searchQuery({ query: name }));
-
-    this.results$.subscribe(results => {
-      console.log(results);
-    });
   }
 
   getValue(event: Event): string {

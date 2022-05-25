@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../auth/interfaces/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -14,27 +15,16 @@ export class StorageService {
     localStorage.setItem('token', token);
   }
 
-  storeUid(uid: string) {
-    localStorage.setItem('uid', uid);
-  }
-
-  /*storeUser(user: User) {
+  storeUser(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
-  }*/
-
-  /**
-   * Delete token
-   */
-  deleteToken() {
-    localStorage.removeItem('token');
   }
 
-  deleteUid() {
-    localStorage.removeItem('uid');
+  getToken(): string {
+    return localStorage.getItem('token')!;
   }
 
-  deleteUser() {
-    localStorage.removeItem('user');
+  getUser(): User {
+    return JSON.parse(localStorage.getItem('user')!);
   }
 
   clear(): void {

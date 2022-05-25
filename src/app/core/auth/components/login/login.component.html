@@ -1,0 +1,58 @@
+<div class="card">
+  <img class="logo-position" src="assets/icons/svg/logo-nom.svg" alt="logo position" />
+
+  <img class="logo-welcome" src="assets/icons/svg/welcome-large.svg" alt="logo position" />
+
+  <form class="form" [formGroup]="loginForm" (submit)="onSubmit()">
+    <div class="champ form-group" fxLayout="column">
+      <label style="font-family: OpenSans semibold">{{'login.email' | translate }} / {{'login.phone' | translate }}</label>
+      <input
+        type="text"
+        formControlName="identifiant"
+        name="identifiant"
+        id="identifiant"
+        class="form-control"
+        required
+        [ngClass]="{ 'is-invalid': submitted && f.identifiant.errors }"
+      />
+      <div *ngIf="submitted && f.identifiant.errors" class="invalid-feedback">
+        <div *ngIf="f.identifiant.errors.required">required</div>
+      </div>
+    </div>
+
+    <div class="champ form-group" fxLayout="column">
+      <label style="font-family: OpenSans semibold">{{ 'login.password' | translate }}</label>
+      <input
+        type="password"
+        formControlName="password"
+        name="password"
+        id="password"
+        class="form-control"
+        required
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+      />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">required</div>
+      </div>
+    </div>
+
+    <div class="container-forget-password" fxLayout="row">
+      <a id="forgotten-password" type="button" routerLink="/auth/password/forgot"> {{'login.forgotPassword' | translate }}? </a>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap.lg="55px" fxLayoutGap.xs="35px" fxLayoutGap.sm="50px" class="login-button">
+      <a routerLink="/auth/register"
+        ><button type="button" class="btn" id="btn-creer-compte">{{'login.createAccount' | translate }}</button></a
+      >
+
+      <button type="submit" class="btn" id="btn-connexion">{{'login.login' | translate }}</button>
+    </div>
+  </form>
+
+  <app-loading *ngIf="(isLoginLoading$ | async)"></app-loading>
+
+  <div class="social-button" fxLayout="row">
+    <a (click)="loginFacebook()" class="fa fa-facebook"></a>
+    <a (click)="loginGoogle()" class="fa fa-google"></a>
+  </div>
+</div>

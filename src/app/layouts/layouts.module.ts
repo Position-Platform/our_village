@@ -9,9 +9,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { CategoriesModule } from '../categories/categories.module';
 import { MaterialModule } from '../core/modules/material';
 import { SearchbarModule } from './searchbar-layout/searchbar.module';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AuthLayoutComponent, SidebarLayoutComponent, BaseLayoutComponent],
-  imports: [CommonModule, RouterModule, MatSidenavModule, CategoriesModule, TranslateModule, MaterialModule, SearchbarModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatSidenavModule,
+    CategoriesModule,
+    TranslateModule,
+    MaterialModule,
+    SearchbarModule,
+    NgbDropdownModule
+  ]
 })
 export class LayoutsModule {}
