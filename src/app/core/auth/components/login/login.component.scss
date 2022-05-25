@@ -1,0 +1,107 @@
+@import '../../../../../environments/color.scss';
+
+.card {
+  width: 650px;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  margin: 5em auto;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo-position {
+  top: 200px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.logo-welcome {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form {
+  top: 200px;
+  width: 500px;
+}
+
+.champ {
+  padding-left: 24%;
+  margin-top: 30px;
+}
+
+.login-button {
+  padding-left: 24%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+input {
+  font-family: 'OpenSans';
+}
+
+.container-forget-password {
+  text-align: left;
+  margin-top: 30px;
+  padding-left: 24%;
+  margin-bottom: 20px;
+}
+
+#forgotten-password {
+  color: $primary_color;
+  font-family: 'OpenSans bold';
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#btn-creer-compte {
+  font-family: 'OpenSans bold';
+  font-size: 14px;
+
+  color: #05bf95;
+  background-color: white;
+  font-weight: bold;
+  border: 2px solid whitesmoke;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#btn-connexion {
+  font-family: 'OpenSans bold';
+  font-size: 15px;
+  margin-left: 10px;
+  color: white;
+  background-color: #05bf95;
+  font-weight: bold;
+  border: 2px solid #05bf95;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fa {
+  padding: 15px;
+  text-decoration: none;
+  clip-path: circle();
+  width: 70px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+  text-align: center;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  text-align: center;
+}
+
+.social-button {
+  margin: 0 auto;
+}
+
+@media (max-width : 768px) {}

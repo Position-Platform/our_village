@@ -1,0 +1,24 @@
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<div class="footer">
+  <div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn success" id="dropdownBasic1" ngbDropdownToggle>
+          <span style="text-transform: capitalize" class="primaryColor" *ngIf="selectedSortOrder==='fr'"> Français </span>
+          <span style="text-transform: capitalize" *ngIf="selectedSortOrder==='en'"> Anglais </span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)="change_language(lang)" *ngFor="let lang of environment.avaible_language" ngbDropdownItem>
+            <span style="text-transform: capitalize" class="primaryColor" *ngIf="lang==='fr'"> Français </span>
+            <span style="text-transform: capitalize" *ngIf="lang==='en'"> Anglais </span>
+          </button>
+        </div>
+      </div>
+
+      <img class="icon-help" src="assets/icons/svg/icon-help.svg" />
+    </div>
+  </div>
+</div>

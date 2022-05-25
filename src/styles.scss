@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './assets/fonts/open_sans/style.scss';
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import './ol.scss';
+
+html,
+body {
+  margin: 0 auto;
+  height: 100%;
+  color: black;
+  overflow-y: auto;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

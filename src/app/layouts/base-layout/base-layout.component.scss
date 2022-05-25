@@ -1,0 +1,13 @@
+.main {
+  left: 400px;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+}
+@media (max-width:728px){
+  .main{
+   left: unset;
+  }
+}

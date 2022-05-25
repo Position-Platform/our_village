@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>00192A17-7380-4A80-92AC-875A1C1DD8D8</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="420" height="1080"></rect>
+        <filter x="-6.5%" y="-2.5%" width="113.1%" height="105.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="3" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="desktop-manager---5-modifier-la-fiche" transform="translate(-100.000000, -464.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="1920" height="1080"></rect>
+            <g id="Group">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="menu/menu-list-default" transform="translate(100.000000, 464.000000)" stroke="#05BF95" stroke-width="1.5">
+                    <g id="icon/action-vignette-enregistrer">
+                        <path d="M18.8141814,9.05114921 C18.5960279,8.54595027 17.9940554,8.1621312 17.4746498,8.19877471 C16.9552441,8.23540702 16.3549092,8.03201735 16.0891948,7.778872 C15.8234804,7.52572666 15.6075104,6.92649751 15.6271899,6.40434849 C15.6463262,5.88219948 15.2450084,5.29717704 14.7310755,5.09269842 C14.2171426,4.8882198 13.5233093,5.04349142 13.1816345,5.43441524 C12.8404636,5.82479878 12.2680242,6.11183027 11.9038846,6.12277574 C11.539745,6.1337114 10.9607411,5.86088242 10.607547,5.48035259 C10.2548987,5.09980877 9.55396908,4.96367631 9.04872815,5.18237564 C8.54352921,5.40052909 8.15698077,6.00250161 8.19361029,6.52190726 C8.2302426,7.0413129 8.02685293,7.6416478 7.77370758,7.90736223 C7.52056224,8.17307666 6.92133309,8.38631725 6.40191344,8.36936718 C5.88250807,8.35241851 5.29474226,8.75264037 5.09026363,9.26658729 C4.88578502,9.77998833 5.04105663,10.4743534 5.43143459,10.8160283 C5.82236401,11.1571992 6.1094095,11.7296386 6.12034096,12.0921406 C6.13127593,12.4546286 5.86008527,13.035284 5.47791782,13.3884782 C5.09573636,13.7411265 4.95851214,14.4409643 5.17994086,14.9488367 C5.40082368,15.456765 6.00006683,15.840584 6.5194722,15.8039545 C7.03887785,15.7673222 7.63921275,15.9707119 7.90492718,16.2238572 C8.17064161,16.4770026 8.38661157,17.0735024 8.36693213,17.5956514 C8.34725269,18.1178005 8.74911357,18.702823 9.26415223,18.9073016 C9.77919089,19.1117802 10.4719184,18.9565086 10.8135932,18.5655848 C11.15531,18.1752012 11.7261118,17.8881697 12.0902514,17.882697 C12.454391,17.8772296 13.0333949,18.1473197 13.3893184,18.5278635 C13.74471,18.9084073 14.4445479,19.0385212 14.9496768,18.8203677 C15.4548058,18.6022141 15.8414242,18.0029851 15.8047947,17.4835653 C15.7681624,16.9641597 15.9715521,16.3638248 16.2246974,16.0981104 C16.4778428,15.8323959 17.0754343,15.6197012 17.5975833,15.6404864 C18.1197323,15.6612716 18.7047548,15.258305 18.9092334,14.7432663 C19.113712,14.2282276 18.9611739,13.5355001 18.5675166,13.191026 C18.1744036,12.8465798 17.8873582,12.2812368 17.8775184,11.913276 C17.8676787,11.5453153 18.1394118,10.9701326 18.5226849,10.6169384 C18.9125226,10.1943063 19.0257004,9.58522346 18.8140974,9.05098125 L18.8141814,9.05114921 Z M13.0755111,14.5016263 L13.0755111,14.5010804 C12.4123028,14.7881259 11.6621186,14.7996032 10.9902743,14.5327915 C10.3188638,14.2665312 9.78032463,13.7443821 9.493881,13.0806279 C9.20738139,12.4174196 9.19644992,11.6672354 9.4632631,10.995811 C9.7295234,10.3244006 10.2522183,9.78586137 10.9159865,9.49983764 C11.5791948,9.2138839 12.329379,9.20295243 13.0008034,9.46976701 C13.6722138,9.73713306 14.2102072,10.2598139 14.4962169,10.9236101 C14.7821707,11.5857267 14.7931021,12.3342033 14.527928,13.0050678 C14.2622135,13.6759324 13.7417021,14.2139257 13.0795436,14.5010412 L13.0755111,14.5016263 Z" id="Fill-1"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+<div id="map" class="map"></div>
+
+<div class="map-buttons">
+  <div class="vertical-toolbar-groupe-btn-1">
+    <div id="zooms"></div>
+
+    <div id="zoom-plus">
+      <button class="" (click)="zoomPlus()" matTooltip="">
+        <img src="assets/icons/svg/icon_verticalToolbar/icon-zoom-plus.svg" />
+      </button>
+    </div>
+
+    <div id="zoom-minus">
+      <button class="primaryColorBG" id="zoom-minus" (click)="zoomMinus()" matTooltip="">
+        <img src="assets/icons/svg/icon_verticalToolbar/icon-zoom-less.svg" />
+      </button>
+    </div>
+    <div id="myLocation">
+      <button matTooltip="" (click)="getLocation()">
+        <img src="assets/icons/svg/icon_verticalToolbar/icon-my_location.svg" />
+      </button>
+    </div>
+  </div>
+</div>

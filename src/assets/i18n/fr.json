@@ -1,0 +1,34 @@
+{
+  "categories": {
+    "show_all_categories": "Voir toutes les catégories",
+    "hide_all_categories": "Masquer toutes les catégories",
+    "title": "Catégories"
+  },
+  "search": {
+    "placeholder": "Rechercher un établissement, un lieu..."
+  },
+  "login": {
+    "email": "Email",
+    "password": "Mot de Passe",
+    "forgotPassword": "Mot de Passe oublié",
+    "createAccount": "Créer un Compte",
+    "login": "Connexion",
+    "logout": "Deconnexion",
+    "phone": "Numéro de téléphone"
+  },
+  "register": {
+    "name": "Nom Complet",
+    "phone": "Numéro de téléphone",
+    "email": "Email",
+    "password": "Mot de Passe",
+    "passwordConfirm": "Confirmer le mot de passe",
+    "createAccount": "Créer le Compte",
+    "haveAccount": "J'ai déja un compte",
+    "changePassword": "Changer le mot de Passe"
+  },
+  "reset": {
+    "phone": "Numéro de téléphone",
+    "email": "Email",
+    "resetPassword": "Réinitialisez le mot de passe"
+  }
+}

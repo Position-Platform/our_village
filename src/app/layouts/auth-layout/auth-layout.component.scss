@@ -1,0 +1,37 @@
+@import '../../../environments/color.scss';
+
+.footer {
+  position: fixed;
+  font-size: 13px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $accent_color;
+  color: white;
+  height: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.btn {
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.success {
+  border-color: white;
+  color: white;
+}
+
+.icon-help {
+  margin-left: 30px;
+  height: 30px;
+}
