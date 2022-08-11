@@ -1,7 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { exhaustMap, Observable, Subject, switchMap } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { SearchInterface } from '../interfaces/search';
 import { searchQuery } from '../states/search.actions';
 import { SearchState } from '../states/search.reducer';

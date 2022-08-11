@@ -45,7 +45,7 @@ export const categoriesReducer = createReducer(
     isLoadingFailure: false,
     result: ''
   })),
-  on(categoriesSuccess, (_state, { categories }) => ({
+  on(categoriesSuccess, (state, { categories }) => ({
     categories: categories,
     isLoading: false,
     isLoadingSuccess: true,
