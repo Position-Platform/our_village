@@ -1,6 +1,14 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { Categorie } from '../interfaces/categorie';
 import { Datum } from '../interfaces/categories';
-import { categoriesFailure, categoriesSuccess, getallcategories, updateSuccess, updateviewcategorie } from './categories.actions';
+import {
+  annulerFilter,
+  categoriesFailure,
+  categoriesSuccess,
+  getallcategories,
+  updateSuccess,
+  updateviewcategorie
+} from './categories.actions';
 
 export const categorieFeatureKey = 'categorie';
 
@@ -11,7 +19,9 @@ export interface CategoriesState {
   isLoadingSuccess: boolean;
   isLoadingFailure: boolean;
   isUpdate?: boolean;
-  categorie?: Datum;
+  categorieSelect?: Categorie;
+  isCategorie?: boolean;
+  isFilterCategorie?: boolean;
 }
 
 export const initialState: CategoriesState = {
@@ -20,7 +30,10 @@ export const initialState: CategoriesState = {
   isLoading: false,
   isLoadingSuccess: false,
   isLoadingFailure: false,
-  isUpdate: false
+  isUpdate: false,
+  categorieSelect: undefined,
+  isCategorie: false,
+  isFilterCategorie: false
 };
 
 export const categoriesReducer = createReducer(
@@ -32,14 +45,15 @@ export const categoriesReducer = createReducer(
     isLoadingFailure: false,
     result: ''
   })),
-  on(categoriesSuccess, (state, { categories }) => ({
+  on(categoriesSuccess, (_state, { categories }) => ({
     categories: categories,
     isLoading: false,
     isLoadingSuccess: true,
     isLoadingFailure: false,
-    result: ''
+    result: '',
+    isCategorie: true
   })),
-  on(categoriesFailure, (state, { message }) => ({
+  on(categoriesFailure, (çstate, { message }) => ({
     categories: [],
     isLoading: false,
     isLoadingSuccess: false,
@@ -60,8 +74,20 @@ export const categoriesReducer = createReducer(
     isLoadingSuccess: false,
     isLoadingFailure: false,
     result: '',
-    categorie: categorie,
-    isUpdate: true
+    categorieSelect: categorie,
+    isUpdate: true,
+    isFilterCategorie: true
+  })),
+  on(annulerFilter, state => ({
+    categories: state.categories,
+    isLoading: false,
+    isLoadingSuccess: false,
+    isLoadingFailure: false,
+    result: '',
+    categorieSelect: state.categorieSelect,
+    isUpdate: true,
+    isCategorie: true,
+    isFilterCategorie: false
   }))
 );
 

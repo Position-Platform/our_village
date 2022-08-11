@@ -1,0 +1,68 @@
+<div *ngIf="!detectMobile" style="margin: 0 auto">
+  <div style="margin-top: 10px" fxLayout="row wrap" fxLayoutAlign="flex-start" *ngIf="displayFilterSelection">
+    <ng-container *ngFor="let filter of userFilterSelection">
+      <button class="selectedFilter">{{filter}}</button>
+    </ng-container>
+  </div>
+  <div *ngIf="displayFilterSelection" style="text-align: center">
+    <button *ngIf="!showHideFilter" (click)="showHideFilterfunction()">
+      <span style="font-family: OpenSans" *ngIf="userFilterSelection!.length <= 1">{{userFilterSelection?.length}} filtre</span>
+      <span style="font-family: OpenSans" *ngIf="userFilterSelection!.length  > 1">{{userFilterSelection?.length}} filtres</span>
+      <img src="assets/icons/svg/icon-see-more.svg" alt="flèche" />
+    </button>
+  </div>
+</div>
+<div
+  [ngClass]="{'notDisplayFilter':displayFilterSelection && !detectMobile,'displayFilter':showHideFilter && !detectMobile} || {'displayFilter':detectMobile}"
+>
+  <div>
+    <div *ngIf="detectMobile">
+      <div style="margin-top: 10px">
+        <span class="text-center" style="font-family: OpenSans bold">Filtres</span>
+        <img
+          class="img-fluid clear-logo"
+          src="assets/icons/svg/icon_search/icon-clear.svg"
+          alt="fermer"
+          style="float: right; cursor: pointer"
+          (click)="annuler()"
+        />
+      </div>
+      <hr style="margin: 20px -10000px" />
+    </div>
+    <p [ngClass]="{'trier':detectMobile}">Trier par</p>
+
+    <mat-button-toggle-group
+      [ngClass]="{'buttonTri':detectMobile}"
+      appearance="legacy"
+      [value]="value"
+      (change)="onValChange($event.value)"
+      name="fontStyle"
+      class="buttonTogleGroup"
+      aria-label="Font Style"
+    >
+      <mat-button-toggle selected class="button-toggle-appearence1" value="distance">Distance</mat-button-toggle>
+      <mat-button-toggle class="button-toggle-appearence" value="avis">Avis</mat-button-toggle>
+      <mat-button-toggle class="button-toggle-appearence" value="pertinence">Pertinance</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <hr [ngClass]="{'hrMobile':detectMobile}" />
+
+  <div>
+    <p [ngClass]="{'commodite':detectMobile}">Commodités</p>
+    <section>
+      <div class="example-button-row" flexLayout="row wrap">
+        <!--app-buttons *ngFor=" let commodite of categorie?.commodites" (click)="addFilter(commodite.nom,commodite.id)"
+            [butonName]="commodite.nom">
+          </!-app-buttons-->
+      </div>
+    </section>
+  </div>
+
+  <div style="text-align: right; margin-top: 30px; margin-bottom: 20px">
+    <button (click)="annuler()" mat-button style="margin-right: 20px; color: #05bf95; border: none">Annuler</button>
+    <button (click)="validerFilter()" style="border: none; color: white; border-radius: 5px !important; background-color: #05bf95">
+      Appliquer
+    </button>
+  </div>
+</div>

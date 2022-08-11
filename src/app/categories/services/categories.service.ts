@@ -8,20 +8,20 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 import { Categorie } from '../interfaces/categorie';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CategoriesService {
   constructor(private apiService: ApiService) {}
 
-  updateViewCategorie(id: number): Observable<Datum> {
+  updateViewCategorie(id: number): Observable<Categorie> {
     return from(
       this.apiService.postRequest('/api/categories/' + id, {
         vues: true,
-        _method: 'PUT',
+        _method: 'PUT'
       })
     ).pipe(
-      map((categories: Datum) => {
-        return categories;
+      map((categorie: Categorie) => {
+        return categorie;
       }),
       catchError(err => {
         throw new Error(err);
@@ -31,8 +31,8 @@ export class CategoriesService {
 
   getCategorieById(id: number): Observable<Categorie> {
     return from(this.apiService.getRequest('/api/categories/' + id)).pipe(
-      map((categories: Categorie) => {
-        return categories;
+      map((categorie: Categorie) => {
+        return categorie;
       }),
       catchError(err => {
         throw new Error(err);

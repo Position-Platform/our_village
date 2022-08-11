@@ -19,3 +19,21 @@ export const selectIsUpdate = createSelector(
 
   (state: fromCategories.CategoriesState) => state.isUpdate
 );
+
+export const selectIsFilterCategorie = createSelector(
+  selectCategoriesState,
+
+  (state: fromCategories.CategoriesState) => state.isFilterCategorie
+);
+
+export const selectIsCategorie = createSelector(
+  selectCategoriesState,
+
+  (state: fromCategories.CategoriesState) => state.isCategorie
+);
+
+export const selectCategorieClick = createSelector(
+  selectCategoriesState,
+
+  (state: fromCategories.CategoriesState) => state.categorieSelect
+);

@@ -1,0 +1,227 @@
+.divider {
+  margin-top: 20px;
+  // width: 454px;
+}
+
+::ng-deep .mat-divider {
+  border-top-color: grey;
+  margin-top: 40px;
+}
+
+.filter-image {
+  border: 2px solid #f0eded;
+  background-color: #ffffff;
+  height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  padding: 3px;
+}
+
+.mat-button {
+  border-radius: 50px;
+  border: 2px solid rgb(148, 146, 146);
+  padding: 0 5px 0px 5px;
+  height: 25px;
+  line-height: 4px;
+  border-width: thin;
+
+  font-size: 12px;
+}
+
+::ng-deep .mat-button-focus {
+  background-color: red !important;
+}
+
+.buttonTogleGroup {
+  height: 20px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 20px;
+  border-radius: 30px;
+  background-color: white;
+  border: 2px solid rgb(148, 146, 146);
+  border-width: thin;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: -50px;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.mat-button-toggle {
+  background-color: white;
+  color: black;
+}
+
+.button-toggle-appearence1 {
+  border-left-color: 2px black;
+}
+
+.mat-button-toggle-checked {
+  background-color: #05bf95;
+}
+
+.button-accessibilite {
+  border-radius: 30px;
+  background-color: white;
+  border: 2px solid rgb(148, 146, 146);
+
+  text-align: center;
+}
+
+section {
+  display: table;
+  margin-top: -20px;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  //display: table-cell;
+  // width: 490px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+div {
+  margin-bottom: 5px;
+}
+
+.buttonchangeStyle {
+  color: white;
+  background-color: #05bf95;
+}
+
+/*.example-button-row .mat-button-base {
+  margin: 8px 8px 0px 0;
+}*/
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+p {
+  color: gray;
+  margin-top: 10px;
+  //margin-bottom: 20px;
+}
+
+.applyButton {
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  background-color: #05bf95;
+}
+
+.trier {
+  text-indent: -280px;
+}
+
+.buttonTri {
+  margin-left: -100px;
+}
+
+.commodite {
+  text-indent: -260px;
+}
+
+.hrMobile {
+  margin: 20px -10000px;
+}
+
+.notDisplayFilter {
+  display: none;
+}
+
+displayFilter {
+  display: block;
+}
+
+.selectedFilter {
+  background-color: #05bf95;
+  border-radius: 50px;
+  border: 1px solid #e1dddd;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  padding: 0 5px 0px 5px;
+  margin-bottom: 10px;
+  height: 25px;
+  line-height: 4px;
+  font-size: 10px;
+  font-family: OpenSans bold;
+  border-width: thin;
+  margin-left: 4px;
+  color: white;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: #05bf95;
+}
+
+@media (max-width: 429px) {
+  .barre-horizontale {
+    display: block;
+  }
+
+  .text-right {
+    bottom: 0;
+    position: fixed;
+    right: 30px;
+  }
+
+  .liste-filtres {
+    margin-top: 25px;
+  }
+
+  .filter {
+    // height: 100vh;
+    width: 100vw;
+    top: 0;
+    margin: unset;
+    background-color: white;
+    border-radius: unset;
+    border: unset;
+    position: absolute;
+
+    z-index: 3;
+  }
+}
+
+.filter-title {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: -60px;
+  font-family: 'OpenSans bold';
+  font-size: 14px;
+}
+
+@media (min-width: 429px) {
+  .filter-title {
+    display: none;
+  }
+
+  .barre-horizontale {
+    display: none;
+  }
+}

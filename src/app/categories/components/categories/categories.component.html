@@ -1,11 +1,12 @@
 <div class="container categories">
-  <p class="title">{{'categories.title' | translate }}</p>
+  <p class="title" *ngIf="(isCategorie$ | async)">{{'categories.title' | translate }}</p>
   <ng-content *ngIf="(isLoading$ | async)=== false; else spinner"></ng-content>
 
   <ng-template #spinner>
     <app-loading> </app-loading>
   </ng-template>
   <div
+    *ngIf="(isCategorie$ | async)"
     fxLayout=" row "
     fxLayoutAlign="flex-start"
     [ngClass]="{'liste-categories-show-mobile':show_hide_categorie,'liste-categories':!show_hide_categorie}"
@@ -17,7 +18,7 @@
     </button>
   </div>
 
-  <div *ngIf="(isLoading$ | async)=== false" class="text-center" style="margin-top: 10px">
+  <div *ngIf="(isCategorie$ | async)" class="text-center" style="margin-top: 10px">
     <button (click)="ShowHideCategorie()" *ngIf="!show_hide_categorie" style="display: none" class="showCategorie">
       <span style="font-family: OpenSans; font-size: 12px">{{'categories.show_all_categories' | translate }}</span>
       <img src="assets/icons/svg/icon-see-more-grey.svg" alt="flèche" />
@@ -27,4 +28,6 @@
       <img src="assets/icons/svg/icon-see-less.svg" alt="flèche" />
     </button>
   </div>
+
+  <app-filters *ngIf="(isFilterCategorie$ | async)" [categorie]="(categorieSelect$ | async)!"></app-filters>
 </div>

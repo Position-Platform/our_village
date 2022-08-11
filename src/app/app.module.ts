@@ -50,7 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     StoreModule.forFeature(searchFeatureKey, searchreducer),
     StoreModule.forFeature(categorieFeatureKey, categoriesreducer),
     StoreModule.forFeature(authFeatureKey, authreducer),
-    StoreModule.forRoot({ searchreducer, categoriesreducer, authreducer }),
+    StoreModule.forRoot({}, { runtimeChecks: { strictStateImmutability: false, strictActionImmutability: false } }),
     EffectsModule.forRoot([SearchEffects, CategoriesEffects, AuthEffects]),
     FontAwesomeModule,
     NotifierModule.withConfig({

@@ -12,9 +12,9 @@ export const environment = {
 
   avaible_language: ['fr', 'en'],
   default_language: 'fr',
-  url_services: 'http://localhost:8000',
+  url_services: 'https://servicesdev.position.cm',
   url_images: 'https://service.geo.sm/var/www',
   primaryColor: '#05BF95',
-  apiKey: 'soo7HP58G7nZ1sn4MWnqn8FwEGjjde97bldXLJxos5XM5wp5pEjHDbXqlzwp0jtc',
+  apiKey: 'T60SmAh1XEp51gswk33onmQoKQcSZBfrR32fyva3p29ohP0Ib369rhxV4Fvrbo6l',
   firebaseApiKey: 'AIzaSyDFnJZLnSb3iAOARbf_XiBYOCIkDePXx7Y'
 };

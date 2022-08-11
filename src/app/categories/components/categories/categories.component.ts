@@ -5,10 +5,18 @@ import { Observable } from 'rxjs';
 import { Datum } from '../../interfaces/categories';
 import { GETCATEGORIES } from '../../states/categories.actions';
 import { CategoriesState } from '../../states/categories.reducer';
-import { selectCategories, selectIsLoading, selectIsUpdate } from '../../states/categories.selector';
+import {
+  selectCategorieClick,
+  selectCategories,
+  selectIsCategorie,
+  selectIsFilterCategorie,
+  selectIsLoading,
+  selectIsUpdate
+} from '../../states/categories.selector';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { Categorie } from '../../interfaces/categorie';
 
 @Component({
   selector: 'app-categories',
@@ -19,6 +27,9 @@ export class CategoriesComponent implements OnInit {
   categories$: Observable<Datum[]>;
   isLoading$: Observable<boolean>;
   isUpdate$: Observable<boolean | undefined>;
+  isFilterCategorie$: Observable<boolean | undefined>;
+  isCategorie$: Observable<boolean | undefined>;
+  categorieSelect$: Observable<Categorie | undefined>;
 
   iconRegistry: MatIconRegistry | undefined;
   sanitzer: DomSanitizer | undefined;
@@ -30,6 +41,9 @@ export class CategoriesComponent implements OnInit {
     this.categories$ = this.store.pipe(select(selectCategories));
     this.isLoading$ = this.store.pipe(select(selectIsLoading));
     this.isUpdate$ = this.store.pipe(select(selectIsUpdate));
+    this.isFilterCategorie$ = this.store.pipe(select(selectIsFilterCategorie));
+    this.isCategorie$ = this.store.pipe(select(selectIsCategorie));
+    this.categorieSelect$ = this.store.pipe(select(selectCategorieClick));
 
     this.iconRegistry = iconRegistry;
     this.sanitzer = sanitizer;
@@ -61,9 +75,5 @@ export class CategoriesComponent implements OnInit {
 
   categorieClick(idcategorie: string) {
     this.store.dispatch(updateviewcategorie({ categorieId: idcategorie }));
-
-    this.isUpdate$.subscribe(isUpdate => {
-      console.log(isUpdate);
-    });
   }
 }

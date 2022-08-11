@@ -1,7 +1,8 @@
-import { MapHelper } from './../../map/helpers/mapHelper';
 import { SearchInterface } from './../searchbar-layout/interfaces/search';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { CategoriesState } from 'src/app/categories/states/categories.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-sidebar-layout',
@@ -13,7 +14,7 @@ export class SidebarLayoutComponent implements OnInit, OnDestroy {
   private _open = false;
   mobileQuery: MediaQueryList;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private store: Store<CategoriesState>) {
     this.mobileQuery = media.matchMedia('(max-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
@@ -38,8 +39,7 @@ export class SidebarLayoutComponent implements OnInit, OnDestroy {
     this._open = !this._open;
   }
 
-  onPlaceSelected(result: SearchInterface) {
-    var mapHelper = new MapHelper();
-    mapHelper.zoomSelectedResult(result);
+  onPlaceSelected(_result: SearchInterface) {
+    // Empty the search bar
   }
 }
