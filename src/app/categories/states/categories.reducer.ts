@@ -1,13 +1,15 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { Categorie } from '../interfaces/categorie';
+import { Categorie, Commodite } from '../interfaces/categorie';
 import { Datum } from '../interfaces/categories';
 import {
   annulerFilter,
+  annulerFilterSelected,
   categoriesFailure,
   categoriesSuccess,
   getallcategories,
   updateSuccess,
-  updateviewcategorie
+  updateviewcategorie,
+  validerFilter
 } from './categories.actions';
 
 export const categorieFeatureKey = 'categorie';
@@ -22,6 +24,8 @@ export interface CategoriesState {
   categorieSelect?: Categorie;
   isCategorie?: boolean;
   isFilterCategorie?: boolean;
+  isSelectedFilter?: boolean;
+  commodites?: Commodite[];
 }
 
 export const initialState: CategoriesState = {
@@ -33,7 +37,9 @@ export const initialState: CategoriesState = {
   isUpdate: false,
   categorieSelect: undefined,
   isCategorie: false,
-  isFilterCategorie: false
+  isFilterCategorie: false,
+  isSelectedFilter: false,
+  commodites: []
 };
 
 export const categoriesReducer = createReducer(
@@ -53,7 +59,7 @@ export const categoriesReducer = createReducer(
     result: '',
     isCategorie: true
   })),
-  on(categoriesFailure, (çstate, { message }) => ({
+  on(categoriesFailure, (state, { message }) => ({
     categories: [],
     isLoading: false,
     isLoadingSuccess: false,
@@ -88,6 +94,31 @@ export const categoriesReducer = createReducer(
     isUpdate: true,
     isCategorie: true,
     isFilterCategorie: false
+  })),
+  on(validerFilter, (state, { commodites }) => ({
+    categories: state.categories,
+    isLoading: false,
+    isLoadingSuccess: false,
+    isLoadingFailure: false,
+    result: '',
+    categorieSelect: state.categorieSelect,
+    isUpdate: true,
+    isCategorie: false,
+    isFilterCategorie: false,
+    isSelectedFilter: true,
+    commodites: commodites
+  })),
+  on(annulerFilterSelected, state => ({
+    categories: state.categories,
+    isLoading: false,
+    isLoadingSuccess: false,
+    isLoadingFailure: false,
+    result: '',
+    categorieSelect: state.categorieSelect,
+    isUpdate: true,
+    isCategorie: false,
+    isFilterCategorie: true,
+    isSelectedFilter: false
   }))
 );
 

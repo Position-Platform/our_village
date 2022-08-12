@@ -1,17 +1,3 @@
-<div *ngIf="!detectMobile" style="margin: 0 auto">
-  <div style="margin-top: 10px" fxLayout="row wrap" fxLayoutAlign="flex-start" *ngIf="displayFilterSelection">
-    <ng-container *ngFor="let filter of userFilterSelection">
-      <button class="selectedFilter">{{filter}}</button>
-    </ng-container>
-  </div>
-  <div *ngIf="displayFilterSelection" style="text-align: center">
-    <button *ngIf="!showHideFilter" (click)="showHideFilterfunction()">
-      <span style="font-family: OpenSans" *ngIf="userFilterSelection!.length <= 1">{{userFilterSelection?.length}} filtre</span>
-      <span style="font-family: OpenSans" *ngIf="userFilterSelection!.length  > 1">{{userFilterSelection?.length}} filtres</span>
-      <img src="assets/icons/svg/icon-see-more.svg" alt="flèche" />
-    </button>
-  </div>
-</div>
 <div
   [ngClass]="{'notDisplayFilter':displayFilterSelection && !detectMobile,'displayFilter':showHideFilter && !detectMobile} || {'displayFilter':detectMobile}"
 >
@@ -52,9 +38,12 @@
     <p [ngClass]="{'commodite':detectMobile}">Commodités</p>
     <section>
       <div class="example-button-row" flexLayout="row wrap">
-        <!--app-buttons *ngFor=" let commodite of categorie?.commodites" (click)="addFilter(commodite.nom,commodite.id)"
-            [butonName]="commodite.nom">
-          </!-app-buttons-->
+        <app-commodites-button
+          *ngFor=" let commodite of categorie!.data!.commodites"
+          (click)="addFilter(commodite)"
+          [buttonName]="commodite.nom"
+        >
+        </app-commodites-button>
       </div>
     </section>
   </div>

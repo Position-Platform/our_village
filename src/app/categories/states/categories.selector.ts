@@ -37,3 +37,15 @@ export const selectCategorieClick = createSelector(
 
   (state: fromCategories.CategoriesState) => state.categorieSelect
 );
+
+export const selectIsSelectedFilter = createSelector(
+  selectCategoriesState,
+
+  (state: fromCategories.CategoriesState) => state.isSelectedFilter
+);
+
+export const selectIsSelectedCommodite = createSelector(
+  selectCategoriesState,
+
+  (state: fromCategories.CategoriesState) => state.commodites
+);

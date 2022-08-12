@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Categorie } from '../interfaces/categorie';
+import { Categorie, Commodite } from '../interfaces/categorie';
 import { Datum } from '../interfaces/categories';
 
 export const GETCATEGORIES = '[Categories List/API] Retrieve Categories';
@@ -11,6 +11,10 @@ export const UPDATESUCCESS = '[Categories List/API] Update Success';
 export const UPDATEFAIL = '[Categories List/API] Update Fail';
 
 export const ANNULERFILTER = '[Categories List/API] Annuler Filter';
+
+export const ANNULERFILTERSELECTED = '[Categories List/API] Annuler Filter Selected';
+
+export const VALIDERFILTER = '[Categories List/API] Valider Filter';
 
 /*export const getcategoriebyid = createAction(
   '[Categories List] Get Categeorie',
@@ -32,3 +36,7 @@ export const categoriesSuccess = createAction(SUCCESS, props<{ categories: Datum
 export const categoriesFailure = createAction(FAILURE, props<{ message: string }>());
 
 export const annulerFilter = createAction(ANNULERFILTER);
+
+export const validerFilter = createAction(VALIDERFILTER, props<{ commodites: Commodite[] }>());
+
+export const annulerFilterSelected = createAction(ANNULERFILTERSELECTED);

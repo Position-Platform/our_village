@@ -30,4 +30,5 @@
   </div>
 
   <app-filters *ngIf="(isFilterCategorie$ | async)" [categorie]="(categorieSelect$ | async)!"></app-filters>
+  <app-selected-filters *ngIf="(isSelectedFilter$ | async)" [userFilterSelection]="(commoditeSelected$ | async)!"></app-selected-filters>
 </div>

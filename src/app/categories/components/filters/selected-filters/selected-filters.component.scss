@@ -1,0 +1,84 @@
+.scrollableFilters {
+  margin-top: 10px;
+  margin-left: -15px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: #05bf95;
+}
+
+.buttonFiltresDesktop {
+  border: none;
+  background-color: transparent;
+  color: black;
+}
+
+.nbFiltres {
+  font-family: 'OpenSans semi-bold';
+  margin-right: 5px;
+}
+
+.selectedFilter {
+  background-color: #05bf95;
+  border-radius: 50px;
+  border: 1px solid #e1dddd;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  padding: 0 5px 0px 5px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  height: 25px;
+  line-height: 4px;
+  font-size: 10px;
+  font-family: OpenSans bold;
+  border-width: thin;
+  color: white;
+}
+
+@media (min-width: 429px) {
+  .filter-image {
+    display: none;
+    border-radius: 40px;
+    border-color: gray;
+    height: 30px;
+  }
+}
+
+@media (max-width: 728px) {
+  .filterSelected {
+    margin-top: 1px;
+    border-radius: unset;
+    width: 100vw;
+    //padding:10px;
+    top: unset;
+    background-color: white;
+    overflow-x: auto;
+    z-index: 2;
+    position: relative;
+  }
+
+  .scrollableFilters::-webkit-scrollbar {
+    display: none;
+    width: unset;
+  }
+
+  .filter-image {
+    border-radius: 40px;
+
+    height: 25px;
+    border: 1px solid rgb(228, 226, 226);
+  }
+
+  .filterSelectedButton {
+    display: none;
+  }
+
+  .scrollableFilters {
+    overflow-x: auto;
+    margin-left: -5px;
+  }
+}

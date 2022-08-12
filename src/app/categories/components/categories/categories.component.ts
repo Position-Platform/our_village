@@ -11,12 +11,14 @@ import {
   selectIsCategorie,
   selectIsFilterCategorie,
   selectIsLoading,
+  selectIsSelectedCommodite,
+  selectIsSelectedFilter,
   selectIsUpdate
 } from '../../states/categories.selector';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
-import { Categorie } from '../../interfaces/categorie';
+import { Categorie, Commodite } from '../../interfaces/categorie';
 
 @Component({
   selector: 'app-categories',
@@ -30,6 +32,8 @@ export class CategoriesComponent implements OnInit {
   isFilterCategorie$: Observable<boolean | undefined>;
   isCategorie$: Observable<boolean | undefined>;
   categorieSelect$: Observable<Categorie | undefined>;
+  isSelectedFilter$: Observable<boolean | undefined>;
+  commoditeSelected$: Observable<Commodite[] | undefined>;
 
   iconRegistry: MatIconRegistry | undefined;
   sanitzer: DomSanitizer | undefined;
@@ -44,6 +48,8 @@ export class CategoriesComponent implements OnInit {
     this.isFilterCategorie$ = this.store.pipe(select(selectIsFilterCategorie));
     this.isCategorie$ = this.store.pipe(select(selectIsCategorie));
     this.categorieSelect$ = this.store.pipe(select(selectCategorieClick));
+    this.isSelectedFilter$ = this.store.pipe(select(selectIsSelectedFilter));
+    this.commoditeSelected$ = this.store.pipe(select(selectIsSelectedCommodite));
 
     this.iconRegistry = iconRegistry;
     this.sanitzer = sanitizer;

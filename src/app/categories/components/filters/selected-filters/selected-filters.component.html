@@ -1,0 +1,28 @@
+<div class="scrollableFilters" fxLayout="row wrap" fxLayoutAlign="flex-start">
+  <div style="margin-top: 10px" fxLayout="row wrap" fxLayoutAlign="flex-start">
+    <button class="buttonFiltresDesktop filter-image" (click)="showHideFilterfunction()">
+      <img style="margin-left: 5px" src="assets/icons/svg/icon-filters.svg" alt="filters" />
+
+      <span style="font-family: OpenSans" class="nbFiltres" *ngIf="userFilterSelection && userFilterSelection!.length <= 1"
+        >{{userFilterSelection.length}} filtre</span
+      >
+
+      <span style="font-family: OpenSans" class="nbFiltres" *ngIf="userFilterSelection && userFilterSelection!.length > 1"
+        >{{userFilterSelection.length}} filtres</span
+      >
+    </button>
+    <ng-container *ngFor="let filter of userFilterSelection">
+      <button class="selectedFilter">{{filter.nom}}</button>
+    </ng-container>
+  </div>
+
+  <div *ngIf="!detectMobile" style="margin: 0 auto">
+    <div style="text-align: center">
+      <button *ngIf="(isSelectedFilter$ | async)" (click)="showHideFilterfunction()">
+        <span style="font-family: OpenSans" *ngIf="userFilterSelection!.length <= 1">{{userFilterSelection?.length}} filtre</span>
+        <span style="font-family: OpenSans" *ngIf="userFilterSelection!.length  > 1">{{userFilterSelection?.length}} filtres</span>
+        <img src="assets/icons/svg/icon-see-more.svg" alt="flèche" />
+      </button>
+    </div>
+  </div>
+</div>
